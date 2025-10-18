@@ -262,6 +262,6 @@ npm run build       # Ensure production build works
 ---
 
 **Mujeres Tukuy CMS**  
-© 2025 — Built with 💜 by [Diego Pardo](https://github.com/diego-pardo-wp)
+© 2025 — Built with 💜 by [Diego Pardo](https://github.com/parduccinward)
 
 **Documentation complete. Ready for development.** ✨
