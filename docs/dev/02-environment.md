@@ -12,6 +12,11 @@ Defines all environment variables and configuration for different deployment env
 ```
 .env.local           # Local development (gitignored)
 .env.example         # Template (committed to repo)
+lib/env.ts           # Type-safe env validation utility
+lib/env.test.ts      # Unit tests for env validation
+types/env.d.ts       # TypeScript type definitions
+docs/ENV_SETUP.md    # Detailed setup guide
+jest.config.js       # Jest configuration
 ```
 
 ### Deployment Environments
@@ -51,31 +56,45 @@ NEXT_PUBLIC_FB_PIXEL_ID=XXXXXXXXXXXXXX
 
 ### Accessing Variables
 
-**Server-side (API routes, Server Components):**
+**Method 1: Using env utility (Recommended):**
 ```typescript
-const apiKey = process.env.RESEND_API_KEY;
+import { env } from '@/lib/env';
+
+// Server-side
+const apiKey = env.resend.apiKey;
+
+// Client-side
+const whatsappUrl = env.whatsapp.url;
+const calendlyUrl = env.calendly.url;
 ```
 
-**Client-side (Client Components):**
+**Method 2: Direct access:**
 ```typescript
+// Server-side (API routes, Server Components)
+const apiKey = process.env.RESEND_API_KEY;
+
+// Client-side (Client Components)
 const waNumber = process.env.NEXT_PUBLIC_WA_NUMBER;
 ```
 
 ### Validation
 
-Check required variables at startup:
+**Automatic validation on import:**
 ```typescript
-// lib/env.ts
-export function validateEnv() {
-  const required = ['RESEND_API_KEY', 'NEXT_PUBLIC_WA_NUMBER'];
-  
-  for (const key of required) {
-    if (!process.env[key]) {
-      throw new Error(`Missing required environment variable: ${key}`);
-    }
-  }
-}
+import { validateEnv, env } from '@/lib/env';
+
+// Validates all required variables
+validateEnv();
 ```
+
+**Unit tests:**
+```bash
+npm test              # Run all tests
+npm run test:watch    # Watch mode
+npm run test:coverage # Coverage report
+```
+
+Full implementation in `lib/env.ts` with comprehensive test suite in `lib/env.test.ts`.
 
 ---
 

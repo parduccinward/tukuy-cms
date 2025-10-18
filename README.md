@@ -96,20 +96,49 @@ npm run dev
 
 ## ⚙️ Environment Variables
 
+### Quick Setup
+
 ```bash
-# Email
-RESEND_API_KEY=your_resend_api_key
+# Copy template to local environment file
+cp .env.example .env.local
 
-# Analytics
-NEXT_PUBLIC_GA4_ID=G-XXXXXXXXXX
-NEXT_PUBLIC_FB_PIXEL_ID=XXXXXXXXXXXXXX
-
-# WhatsApp
-NEXT_PUBLIC_WA_NUMBER=5917XXXXXXXX
+# Edit .env.local with your actual values
+# See docs/ENV_SETUP.md for detailed instructions
 ```
 
-> Production variables configured in Vercel dashboard.  
-> See [`docs/privacy-security.md`](./docs/privacy-security.md) for data-handling details.
+### Required Variables
+
+```bash
+# Email Service (Required)
+RESEND_API_KEY=re_xxxxxxxxxxxxx
+
+# WhatsApp Contact (Required)
+NEXT_PUBLIC_WA_NUMBER=5917XXXXXXXX
+
+# Calendly Booking (Required)
+NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/mujerestukuy/diagnostico
+```
+
+### Optional Variables
+
+```bash
+# Analytics (Optional)
+NEXT_PUBLIC_GA4_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_FB_PIXEL_ID=XXXXXXXXXXXXXX
+```
+
+### Validation
+
+Test your environment setup:
+
+```bash
+npm test             # Run all tests (includes env validation)
+npm run test:watch   # Watch mode for development
+```
+
+> **Type-safe access:** Use `lib/env.ts` for validated environment variables.  
+> **Production:** Configure in Vercel dashboard.  
+> **Details:** See [`docs/ENV_SETUP.md`](./docs/ENV_SETUP.md) for complete setup guide.
 
 ---
 
@@ -121,9 +150,12 @@ npm run build        # Production build
 npm run start        # Run production
 npm run lint         # ESLint check
 npm run type-check   # TypeScript validation
+npm test             # Run unit tests
+npm run test:watch   # Run tests in watch mode
+npm run test:coverage # Run tests with coverage report
 ```
 
-➡️ Extended scripts: see `package.json`.
+> See `package.json` for all available scripts.
 
 ---
 
@@ -215,6 +247,8 @@ npm run build       # Ensure production build works
 
 ## 📚 Complete Documentation
 
+**📖 [Documentation Index](./docs/INDEX.md)** - Navigation guide for all documentation
+
 ### Essential Reading
 - 📋 [Acceptance Criteria](./docs/acceptance-criteria.md) - Release requirements
 - 🚀 [Deployment Guide](./docs/deployment.md) - Staging and production workflow
@@ -233,6 +267,20 @@ npm run build       # Ensure production build works
 - 📊 [Analytics](./docs/development/analytics.md) - Event tracking
 - 🔐 [Privacy & Security](./docs/privacy-security.md) - Data handling
 
+### Development Guides
+- 🔧 [01-Setup](./docs/dev/01-setup.md) - Project initialization
+- 🌍 [02-Environment](./docs/dev/02-environment.md) - Environment variables
+- 📁 [03-Structure](./docs/dev/03-structure.md) - File organization
+- 🏛️ [04-Architecture](./docs/dev/04-architecture.md) - Technical patterns
+- 🎨 [05-Design System](./docs/dev/05-design-system.md) - Styling conventions
+- 🔌 [06-API](./docs/dev/06-api.md) - API routes
+- 🚀 [07-Deployment](./docs/dev/07-deployment.md) - Deployment workflow
+- 🤖 [08-AI Collaboration](./docs/dev/08-ai-collaboration.md) - AI development guidelines
+
+### Setup & Implementation
+- 🔑 [Environment Setup](./docs/ENV_SETUP.md) - Detailed environment variable guide
+- 📝 [Implementation: Environment](./docs/implementation/02-environment.md) - Setup implementation notes
+
 ---
 
 ## 🎯 Project Status
@@ -246,9 +294,13 @@ npm run build       # Ensure production build works
 - [x] Deployment workflow
 - [x] Testing strategy
 - [x] Acceptance criteria
+- [x] Project setup (Next.js 15 + TypeScript + Tailwind)
+- [x] Environment configuration utilities
+- [x] Type-safe environment validation
 
 ### 🚧 In Progress
-- [ ] Next.js implementation
+- [ ] Project structure (folders and components)
+- [ ] Page implementation
 - [ ] Component development
 - [ ] Contact form integration
 - [ ] Analytics setup
