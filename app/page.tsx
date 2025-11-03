@@ -3,13 +3,46 @@ import { Button } from '@/components/ui/Button'
 import { ServiceCard } from '@/components/ui/ServiceCard'
 
 export const metadata: Metadata = {
-  title: 'Inicio',
+  title: 'Mujeres Tukuy — Mentoría para Mujeres Emprendedoras',
   description: 'Transforma tu visión en un negocio próspero. Mentoría especializada para mujeres emprendedoras con metodologías personalizadas y resultados medibles.',
+  keywords: ['mentoría femenina', 'emprendimiento mujeres', 'coaching empresarial', 'transformación personal', 'negocios conscientes'],
+  authors: [{ name: 'Janette Blacutt' }],
+  creator: 'Janette Blacutt',
+  publisher: 'Mujeres Tukuy',
   openGraph: {
+    type: 'website',
+    locale: 'es_AR',
+    url: '/',
+    siteName: 'Mujeres Tukuy',
+    title: 'Mujeres Tukuy — Mentoría para Mujeres Emprendedoras',
+    description: 'Transforma tu visión en un negocio próspero. Mentoría especializada para mujeres emprendedoras con metodologías personalizadas y resultados medibles.',
+    images: [
+      {
+        url: '/images/og-home.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Mujeres Tukuy - Mentoría para Mujeres Emprendedoras',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
     title: 'Mujeres Tukuy — Mentoría para Mujeres Emprendedoras',
     description: 'Transforma tu visión en un negocio próspero. Mentoría especializada para mujeres emprendedoras.',
-    url: '/',
-  }
+    images: ['/images/og-home.jpg'],
+    creator: '@mujerestukuy',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export default function HomePage() {

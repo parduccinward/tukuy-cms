@@ -3,13 +3,32 @@ import { ServiceCard } from '@/components/ui/ServiceCard'
 import { Button } from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-  title: 'Servicios',
-  description: 'Descubre nuestros servicios de mentoría especializados: Mujer Tukuy con Rumbo, Tukuy Renace y Tukuy Experiencias. Metodologías personalizadas para cada etapa de tu emprendimiento.',
+  title: 'Servicios de Mentoría | Mujeres Tukuy',
+  description: 'Descubre nuestros servicios de mentoría especializados: Mujer Tukuy con Rumbo, Tukuy Renace y Tukuy Experiencias. Metodologías personalizadas para cada etapa de tu emprendimiento y transformación personal.',
+  keywords: ['servicios mentoría', 'coaching emprendedoras', 'transformación personal', 'desarrollo empresarial', 'círculos mujeres'],
   openGraph: {
-    title: 'Servicios de Mentoría | Mujeres Tukuy',
-    description: 'Metodologías especializadas para emprendedoras en todas las etapas de su journey empresarial.',
+    type: 'website',
+    locale: 'es_AR',
     url: '/servicios',
-  }
+    siteName: 'Mujeres Tukuy',
+    title: 'Servicios de Mentoría | Mujeres Tukuy',
+    description: 'Metodologías especializadas para emprendedoras en todas las etapas: desde organizar tu negocio hasta procesos de transformación profunda.',
+    images: [
+      {
+        url: '/images/og-servicios.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Servicios de Mentoría para Mujeres Emprendedoras',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Servicios de Mentoría | Mujeres Tukuy',
+    description: 'Metodologías especializadas para emprendedoras: mentoría empresarial, círculos de transformación y experiencias corporativas.',
+    images: ['/images/og-servicios.jpg'],
+    creator: '@mujerestukuy',
+  },
 }
 
 export default function ServiciosPage() {

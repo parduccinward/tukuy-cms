@@ -2,13 +2,32 @@ import type { Metadata } from 'next'
 import { ContactForm } from '@/components/forms/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contacto',
-  description: 'Ponte en contacto con Mujeres Tukuy. Agenda tu sesión diagnóstica gratuita o solicita información sobre nuestros servicios de mentoría.',
+  title: 'Contacto | Mujeres Tukuy',
+  description: 'Ponte en contacto con Mujeres Tukuy. Agenda tu sesión diagnóstica gratuita o solicita información sobre nuestros servicios de mentoría para emprendedoras.',
+  keywords: ['contacto mentoría', 'sesión diagnóstica gratuita', 'consulta emprendimiento', 'agendar cita coaching'],
   openGraph: {
-    title: 'Contacto | Mujeres Tukuy',
-    description: 'Agenda tu sesión diagnóstica gratuita y comienza tu transformación empresarial.',
+    type: 'website',
+    locale: 'es_AR',
     url: '/contacto',
-  }
+    siteName: 'Mujeres Tukuy',
+    title: 'Contacto | Mujeres Tukuy',
+    description: 'Agenda tu sesión diagnóstica gratuita y comienza tu transformación empresarial. Descubre cómo podemos acompañarte en tu journey emprendedor.',
+    images: [
+      {
+        url: '/images/og-contacto.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Contacta con Mujeres Tukuy - Mentoría para Emprendedoras',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contacto | Mujeres Tukuy',
+    description: 'Agenda tu sesión diagnóstica gratuita y comienza tu transformación empresarial con mentoría especializada.',
+    images: ['/images/og-contacto.jpg'],
+    creator: '@mujerestukuy',
+  },
 }
 
 export default function ContactoPage() {

@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     // Send email
     await sendContactEmail(validatedData)
 
-    return NextResponse.json({ ok: true })
+    return NextResponse.json({ ok: true }, { status: 200 })
   } catch (error) {
     console.error('Contact form error:', error)
     
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { ok: false, error: 'Error interno del servidor' },
+      { ok: false, error: 'Error del servidor' },
       { status: 500 }
     )
   }

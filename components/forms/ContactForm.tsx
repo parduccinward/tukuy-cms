@@ -23,7 +23,6 @@ export function ContactForm() {
   })
   
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -42,30 +41,24 @@ export function ContactForm() {
 
       const result = await response.json()
 
+      if (!response.ok) {
+        // Handle HTTP errors
+        setError(result.error || `Error ${response.status}: No se pudo enviar el mensaje`)
+        return
+      }
+
       if (result.ok) {
-        setSubmitted(true)
+        // Redirect to thank you page instead of showing inline success
+        window.location.href = '/gracias'
       } else {
         setError(result.error || 'Error al enviar el mensaje')
       }
     } catch (err) {
-      setError('Error de conexión. Por favor, intenta de nuevo.')
+      console.error('Contact form submission error:', err)
+      setError('Error de conexión. Por favor, verifica tu internet e intenta de nuevo.')
     } finally {
       setIsSubmitting(false)
     }
-  }
-
-  if (submitted) {
-    return (
-      <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
-        <div className="text-green-600 text-4xl mb-4">✓</div>
-        <h3 className="text-xl font-semibold text-green-800 mb-2">
-          ¡Mensaje enviado con éxito!
-        </h3>
-        <p className="text-green-700">
-          Gracias por tu interés. Te contactaré muy pronto para agendar tu sesión diagnóstica gratuita.
-        </p>
-      </div>
-    )
   }
 
   return (

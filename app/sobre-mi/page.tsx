@@ -3,13 +3,33 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-  title: 'Sobre Mí',
-  description: 'Conoce a Janette Blacutt, mentora con más de 10 años de experiencia acompañando a mujeres emprendedoras en Bolivia.',
+  title: 'Sobre Mí | Mujeres Tukuy',
+  description: 'Conoce a Janette Blacutt, mentora con más de 10 años de experiencia acompañando a mujeres emprendedoras en Bolivia. Descubre mi historia de transformación personal y profesional.',
+  keywords: ['Janette Blacutt', 'mentora Bolivia', 'emprendimiento femenino', 'transformación personal', 'coaching mujeres'],
+  authors: [{ name: 'Janette Blacutt' }],
   openGraph: {
-    title: 'Sobre Mí | Mujeres Tukuy',
-    description: 'Conoce a Janette Blacutt, mentora especializada en emprendimiento femenino.',
+    type: 'profile',
+    locale: 'es_AR',
     url: '/sobre-mi',
-  }
+    siteName: 'Mujeres Tukuy',
+    title: 'Sobre Mí | Mujeres Tukuy',
+    description: 'Conoce a Janette Blacutt, mentora con más de 10 años de experiencia acompañando a mujeres emprendedoras en Bolivia. Descubre mi historia de transformación.',
+    images: [
+      {
+        url: '/images/og-sobre-mi.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Janette Blacutt - Mentora para Mujeres Emprendedoras',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sobre Mí | Mujeres Tukuy',
+    description: 'Conoce a Janette Blacutt, mentora especializada en emprendimiento femenino y transformación personal.',
+    images: ['/images/og-sobre-mi.jpg'],
+    creator: '@mujerestukuy',
+  },
 }
 
 export default function SobreMiPage() {
