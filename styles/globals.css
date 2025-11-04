@@ -3,15 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* Brand Colors */
-    --color-primary: #4A3E8E;
-    --color-secondary: #4A6B50;
-    --color-accent: #E0A424;
-    --color-terracotta: #C46C4A;
-    --color-ivory: #F8E8D0;
-  }
-  
   html {
     scroll-behavior: smooth;
   }

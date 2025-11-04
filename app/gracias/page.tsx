@@ -122,7 +122,7 @@ export default function GraciasPage() {
           {/* Inspirational Quote */}
           <div className="mt-12">
             <blockquote className="font-playfair text-lg italic text-gray-600">
-              "Cuando una mujer se abraza a sí misma, el mundo florece con ella"
+              &ldquo;Cuando una mujer se abraza a sí misma, el mundo florece con ella&rdquo;
             </blockquote>
             <cite className="text-sm text-gray-500 mt-2 block">— Janette Blacutt</cite>
           </div>
