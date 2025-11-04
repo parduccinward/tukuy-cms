@@ -1,10 +1,10 @@
 import { Ratelimit } from '@upstash/ratelimit'
 import { kv } from '@vercel/kv'
 
-// Create a rate limiter that allows 5 requests per minute
+// Create a rate limiter that allows 3 requests per hour (as per docs)
 export const rateLimit = new Ratelimit({
   redis: kv,
-  limiter: Ratelimit.slidingWindow(5, '1 m'),
+  limiter: Ratelimit.slidingWindow(3, '1 h'),
   analytics: true,
   prefix: 'mujerestukuy_contact',
 })

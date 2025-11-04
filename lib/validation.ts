@@ -12,22 +12,23 @@ export const contactSchema = z.object({
   
   message: z.string()
     .min(10, 'El mensaje debe tener al menos 10 caracteres')
-    .max(2000, 'El mensaje no puede exceder 2000 caracteres'),
+    .max(1000, 'El mensaje no puede exceder 1000 caracteres'),
   
   whatsapp: z.string()
     .optional()
-    .refine((val) => !val || /^\+?[1-9]\d{1,14}$/.test(val.replace(/\s/g, '')), {
-      message: 'Número de WhatsApp inválido'
+    .refine((val) => !val || /^\d{8,15}$/.test(val.replace(/\s/g, '')), {
+      message: 'El número de WhatsApp no es válido'
     }),
   
   service: z.enum([
     'mujer-tukuy-con-rumbo',
     'tukuy-renace', 
-    'tukuy-experiencias',
-    'consulta-general'
+    'tukuy-experiencias'
   ]).optional(),
   
-  modality: z.enum(['presencial', 'virtual', 'hibrida']).optional(),
+  modality: z.enum(['individual', 'grupal']).optional(),
+  
+  honeypot: z.string().max(0, 'Campo debe estar vacío'), // Anti-spam, must be empty
 })
 
 // Utility function to validate email format

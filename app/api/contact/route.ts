@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     
     if (!success) {
       return NextResponse.json(
-        { ok: false, error: 'Demasiadas solicitudes. Intenta de nuevo en unos minutos.' },
+        { ok: false, error: 'Has enviado muchos mensajes. Intenta nuevamente en unos minutos' },
         { status: 429 }
       )
     }
@@ -19,6 +19,14 @@ export async function POST(request: NextRequest) {
     // Validate request body
     const body = await request.json()
     const validatedData = contactSchema.parse(body)
+
+    // Check honeypot field (anti-spam)
+    if (validatedData.honeypot && validatedData.honeypot.length > 0) {
+      return NextResponse.json(
+        { ok: false, error: 'Spam detectado' },
+        { status: 400 }
+      )
+    }
 
     // Send email
     await sendContactEmail(validatedData)

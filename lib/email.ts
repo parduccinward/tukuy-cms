@@ -17,7 +17,7 @@ interface ContactEmailData {
   message: string
   whatsapp?: string
   service?: string
-  modality?: 'presencial' | 'virtual' | 'hibrida'
+  modality?: 'individual' | 'grupal'
 }
 
 export async function sendContactEmail(data: ContactEmailData) {

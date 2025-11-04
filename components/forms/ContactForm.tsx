@@ -9,7 +9,8 @@ interface ContactFormData {
   message: string
   whatsapp?: string
   service?: string
-  modality?: 'presencial' | 'virtual' | 'hibrida'
+  modality?: 'individual' | 'grupal'
+  honeypot?: string
 }
 
 export function ContactForm() {
@@ -19,7 +20,8 @@ export function ContactForm() {
     message: '',
     whatsapp: '',
     service: '',
-    modality: undefined
+    modality: undefined,
+    honeypot: ''
   })
   
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -122,7 +124,6 @@ export function ContactForm() {
             <option value="mujer-tukuy-con-rumbo">Mujer Tukuy con Rumbo</option>
             <option value="tukuy-renace">Tukuy Renace</option>
             <option value="tukuy-experiencias">Tukuy Experiencias</option>
-            <option value="consulta-general">Consulta General</option>
           </select>
         </div>
       </div>
@@ -132,20 +133,34 @@ export function ContactForm() {
           Modalidad preferida
         </label>
         <div className="flex space-x-4">
-          {['presencial', 'virtual', 'hibrida'].map((modality) => (
+          {['individual', 'grupal'].map((modality) => (
             <label key={modality} className="flex items-center">
               <input
                 type="radio"
                 name="modality"
                 value={modality}
                 checked={formData.modality === modality}
-                onChange={(e) => setFormData({ ...formData, modality: e.target.value as 'presencial' | 'virtual' | 'hibrida' })}
+                onChange={(e) => setFormData({ ...formData, modality: e.target.value as 'individual' | 'grupal' })}
                 className="mr-2 text-primary focus:ring-primary/50"
               />
               <span className="capitalize">{modality}</span>
             </label>
           ))}
         </div>
+      </div>
+      
+      {/* Honeypot field - hidden from users */}
+      <div style={{ display: 'none' }}>
+        <label htmlFor="honeypot">Leave this empty</label>
+        <input
+          type="text"
+          id="honeypot"
+          name="honeypot"
+          value={formData.honeypot}
+          onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
       
       <div>
