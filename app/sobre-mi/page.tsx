@@ -142,13 +142,15 @@ export default function SobreMiPage() {
             en tu journey emprendedor
           </p>
           
-          <Button 
-            href="https://calendly.com/mujerestukuy/diagnostico"
-            variant="primary"
-            size="lg"
-          >
-            Agenda tu Sesión Conmigo
-          </Button>
+          {process.env.NEXT_PUBLIC_CALENDLY_URL && (
+            <Button 
+              href={process.env.NEXT_PUBLIC_CALENDLY_URL}
+              variant="primary"
+              size="lg"
+            >
+              Agenda tu Sesión Conmigo
+            </Button>
+          )}
         </div>
       </div>
     </div>

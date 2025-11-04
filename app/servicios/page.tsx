@@ -149,13 +149,15 @@ export default function ServiciosPage() {
             la mejor ruta para tu emprendimiento
           </p>
           
-          <Button 
-            href="https://calendly.com/mujerestukuy/diagnostico"
-            variant="primary"
-            size="lg"
-          >
-            Agenda tu Sesión Diagnóstica
-          </Button>
+          {process.env.NEXT_PUBLIC_CALENDLY_URL && (
+            <Button 
+              href={process.env.NEXT_PUBLIC_CALENDLY_URL}
+              variant="primary"
+              size="lg"
+            >
+              Agenda tu Sesión Diagnóstica
+            </Button>
+          )}
         </div>
       </div>
     </div>

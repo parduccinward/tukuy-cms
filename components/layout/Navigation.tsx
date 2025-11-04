@@ -38,13 +38,15 @@ export function Navigation() {
               </Link>
             ))}
             
-            <Button 
-              href="https://calendly.com/mujerestukuy/diagnostico"
-              variant="primary"
-              size="sm"
-            >
-              Agenda tu Sesión
-            </Button>
+            {process.env.NEXT_PUBLIC_CALENDLY_URL && (
+              <Button 
+                href={process.env.NEXT_PUBLIC_CALENDLY_URL}
+                variant="primary"
+                size="sm"
+              >
+                Agenda tu Sesión
+              </Button>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -83,13 +85,15 @@ export function Navigation() {
               ))}
               
               <div className="pt-4">
-                <Button 
-                  href="https://calendly.com/mujerestukuy/diagnostico"
-                  variant="primary"
-                  className="w-full"
-                >
-                  Agenda tu Sesión
-                </Button>
+                {process.env.NEXT_PUBLIC_CALENDLY_URL && (
+                  <Button 
+                    href={process.env.NEXT_PUBLIC_CALENDLY_URL}
+                    variant="primary"
+                    className="w-full"
+                  >
+                    Agenda tu Sesión
+                  </Button>
+                )}
               </div>
             </div>
           </div>

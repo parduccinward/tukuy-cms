@@ -203,14 +203,16 @@ export default function MujerTukuyConRumboPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              href="https://calendly.com/mujerestukuy/diagnostico"
-              variant="accent"
-              size="lg"
-              className="text-primary font-semibold"
-            >
-              Agenda tu Sesión Diagnóstica
-            </Button>
+            {process.env.NEXT_PUBLIC_CALENDLY_URL && (
+              <Button 
+                href={process.env.NEXT_PUBLIC_CALENDLY_URL}
+                variant="accent"
+                size="lg"
+                className="text-primary font-semibold"
+              >
+                Agenda tu Sesión Diagnóstica
+              </Button>
+            )}
             
             <Button 
               href="/contacto"
